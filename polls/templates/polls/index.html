@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>
+            foobar
+        </title>
+    </head>
+
+    <body>
+       {% if question_list %}
+            <h1> recent polling questions </h1>
+            {% for question in question_list %}
+                <li> <a href="{% url 'details' question.id %}">{{ question.question }}</a></li>
+            {% endfor %}
+       {% else %}
+            <h1>No Polls created yet!</h1>
+        {% endif %}
+    </body>
+</html>

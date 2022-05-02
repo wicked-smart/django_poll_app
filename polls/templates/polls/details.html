@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>
+            Question detail page of id {{ ques.id }}
+        </title>
+    </head>
+    <body>
+
+        {% if ques %}
+            <h1>{{ ques.question }}</h1>
+         <br>
+             {% for choice in ques.choice_set.all %}
+                <li> {{ choice.choice_text }}</li>
+            {% endfor %}
+        {% else %}
+            <h1>No Content loading !</h1>
+        {% endif %}    
+    </body>
+
+    
+
+</html>
