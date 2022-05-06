@@ -30,7 +30,7 @@ def details(request, question_id):
         "ques": q[0]
     })
 
-#def vote(request, question_id):
+def vote(request, question_id):
     
 
 

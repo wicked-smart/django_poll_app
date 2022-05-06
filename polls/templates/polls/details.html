@@ -9,14 +9,19 @@
         {% if ques %}
             <h1>{{ ques.question }}</h1>
          <br>
-             {% for choice in ques.choice_set.all %}
-                <li> {{ choice.choice_text }}</li>
+         <form  method="post">
+            {% for choice in ques.choice_set.all %}
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
             {% endfor %}
+            <br>
+            <button>submit</button>
+
+         </form>
+             
         {% else %}
             <h1>No Content loading !</h1>
         {% endif %}    
     </body>
-
-    
 
 </html>
