@@ -7,21 +7,32 @@
     <body>
 
         {% if ques %}
+
+        
             <h1>{{ ques.question }}</h1>
          <br>
-         <form  method="post">
+         <form  action="{% url 'vote' ques.id %}" method="post" >
+             {% csrf_token %}
+             
             {% for choice in ques.choice_set.all %}
                 <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
                 <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
             {% endfor %}
             <br>
+            
             <button>submit</button>
+
+            {% if error_message %}
+                <h1 style="color: red">{{ error_message }}</h1>
+        {% endif %}
 
          </form>
              
         {% else %}
             <h1>No Content loading !</h1>
-        {% endif %}    
+        {% endif %}   
+        
+        <a href="{% url 'index' %}"> <-- Home Page</a>
     </body>
 
 </html>
