@@ -1,19 +1,23 @@
-<html>
-    <head>
-        <title>
-            foobar
-        </title>
-    </head>
+{% extends "polls/base.html" %}
 
-    <body>
+{% block title %}
+    home page
+{% endblock %}
+
+{% block body %}
        {% if question_list %}
             <h1> recent polling questions </h1>
-            {% for question in question_list %}
-                <li> <a href="{% url 'details' question.id %}">{{ question.question }}</a></li>
+            
+                {% for question in question_list %}
+                
+                     <li> <a href="{% url 'details' question.id %}">{{ question.question }}</a></li>
+               
                 <br>
-            {% endfor %}
-       {% else %}
-            <h1>No Polls created yet!</h1>
-        {% endif %}
-    </body>
-</html>
+                
+                {% endfor %}
+        {% else %}
+                     <h1>No Polls created yet!</h1>
+        {% endif %}   
+        
+        <button>Add Poll</button>
+{% endblock %}

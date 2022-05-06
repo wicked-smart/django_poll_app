@@ -1,10 +1,10 @@
-<html>
-    <head>
-        <title>
-            Question detail page of id {{ ques.id }}
-        </title>
-    </head>
-    <body>
+{% extends "polls/base.html" %}
+
+{% block title %}
+    detail of  question id #{{ ques.id }}
+{% endblock %}
+
+{% block body %}
 
         {% if ques %}
 
@@ -23,7 +23,7 @@
             <button>submit</button>
 
             {% if error_message %}
-                <h1 style="color: red">{{ error_message }}</h1>
+                <h1 id="error_message">{{ error_message }}</h1>
         {% endif %}
 
          </form>
@@ -33,6 +33,5 @@
         {% endif %}   
         
         <a href="{% url 'index' %}"> <-- Home Page</a>
-    </body>
 
-</html>
+{% endblock %}
