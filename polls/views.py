@@ -57,6 +57,11 @@ def result(request, question_id):
     )
 
 
+def add_poll(request):
+    if request.method == "GET":
+        return render(request, "polls/add_poll.html")
+
+
 
     
 

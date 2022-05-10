@@ -7,7 +7,7 @@
 {% block body %}
         <p><strong>Results for :- </strong> {{ question.question }}</p><br>
         {% for choice in question.choice_set.all %}
-            <li>{{ choice.choice_text }} ------ <strong>{{ choice.votes }} vote{{ choice.votes|pluralize }}</strong></li>
+            <li>{{ choice.choice_text }} ------ <strong id="green">{{ choice.votes }} vote{{ choice.votes|pluralize }}</strong></li>
         {% endfor %}
         <br>
         <a href="{% url 'details' question.id %}">Vote again ?</a>

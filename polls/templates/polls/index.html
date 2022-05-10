@@ -19,5 +19,5 @@
                      <h1>No Polls created yet!</h1>
         {% endif %}   
         
-        <button>Add Poll</button>
+        <a href="{% url 'add_poll' %}"><button>Add Poll</button></a>
 {% endblock %}
